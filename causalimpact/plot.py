@@ -66,7 +66,8 @@ def plot(
     n_panels = len(panels)
     ax = plt.subplot(n_panels, 1, 1)
     idx = 1
-    color = (1.0, 0.4981, 0.0549)
+    #color = (1.0, 0.4981, 0.0549)
+    color = 'cornflowerblue'
     # The operation `iloc[1:]` is used mainly to remove the uncertainty associated to the
     # predictions of the first points. As the predictions follow
     # `P(z[t] | y[1...t-1], z[1...t-1])` the very first point ends up being quite noisy
@@ -81,7 +82,7 @@ def plot(
         ax.plot(
             pre_post_index[1:],
             inferences['complete_preds_means'].iloc[1:],
-            color='orangered',
+            color='darkblue',
             ls='dashed',
             label='Predicted'
         )
@@ -104,7 +105,7 @@ def plot(
             pre_post_index[1:],
             inferences['point_effects_means'].iloc[1:],
             ls='dashed',
-            color='orangered',
+            color='darkblue',
             label='Point Effects'
         )
         ax.axvline(pre_post_index[intervention_idx - 1], c='gray', linestyle='--')
@@ -127,7 +128,7 @@ def plot(
             pre_post_index[1:],
             inferences['post_cum_effects_means'].iloc[1:],
             ls='dashed',
-            color='orangered',
+            color='darkblue',
             label='Cumulative Effect'
         )
         ax.axvline(pre_post_index[intervention_idx - 1], c='gray', linestyle='--')
